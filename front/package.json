@@ -1,0 +1,38 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.18.0",
+    "highlight": "^0.2.4",
+    "isomorphic-fetch": "^2.2.1",
+    "lscache": "^1.2.0",
+    "mobx": "^5.5.0",
+    "mobx-react": "^5.2.8",
+    "next": "^7.0.1",
+    "next-routes": "^1.4.2",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.2",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dom": "^16.5.2",
+    "react-highlight-js": "^0.15.0",
+    "react-lowlight": "^2.0.0",
+    "react-markdown": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@zeit/next-css": "^1.0.1",
+    "babel-plugin-root-import": "^6.1.0"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "author": "linxd",
+  "license": "ISC"
+}

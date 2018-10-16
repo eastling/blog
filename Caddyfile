@@ -1,0 +1,11 @@
+www.linxd.cc:80 {
+	proxy / localhost:20162
+}
+
+admin.linxd.cc:80 {
+	proxy / localhost:20161
+}
+
+api.linxd.cc:80 {
+	proxy / localhost:20160
+}

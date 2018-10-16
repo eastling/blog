@@ -1,0 +1,68 @@
+
+
+.login-route-main {
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 20px;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li {
+    padding: 0;
+    margin: 0;
+  }
+  .tab-list {
+    border-bottom: 1px solid #eee;
+    &-item {
+      display: inline-block;
+      vertical-align: middle;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      cursor: pointer;
+      &:hover {
+        color: #008CEE;
+      }
+      &.checked {
+        color: #008CEE;
+        border-bottom: 2px solid #008CEE;
+      }
+    }
+  }
+  .main-list {
+    margin-top: 10px;
+  }
+}
+
+
+.login-form {
+  width: 360px;
+  border: 1px solid #03A9F4;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  .login-form-button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.person-info {
+  position: absolute;
+  right: 0;
+  width: 120px;
+  top: 0;
+  display: flex;
+  &-name {
+    flex: 1;
+    text-align: center;
+  }
+  &-logout {
+    flex: 1;
+    text-align: center;
+    color: #1890ff;
+    cursor: pointer;
+  }
+}
