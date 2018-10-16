@@ -10,6 +10,17 @@
       "node_args": [],
       "args": [],
       "env": {}
+    },
+    {
+      "name": "front",
+      "script": "server.js",
+      "cwd": "/Users/east/Documents/blog/front",
+      "exec_mode": "fork",
+      "max_memory_restart": "1G",
+      "autorestart": true,
+      "node_args": [],
+      "args": [],
+      "env": {}
     }
   ]
 }

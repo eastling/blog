@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Nav from './Nav';
-import '~/_sass/minimal-mistakes.scss';
+import '~/static/_sass/minimal-mistakes.scss';
 import Head from 'next/head'
 
 export default ({ children }) => (

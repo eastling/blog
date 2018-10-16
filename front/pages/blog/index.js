@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogLayout from '~/components/blog-layout'
 import axios from 'axios'
-import '~/_sass/minimal-mistakes.scss'
+import '~/static/_sass/minimal-mistakes.scss'
 
 const Blog = () => {
   return (
