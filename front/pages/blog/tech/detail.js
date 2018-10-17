@@ -4,32 +4,19 @@ import BlogLayout from '~/components/blog-layout'
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
 import codeRenderer from './code-renderer';
-// import cachedFetch, { overrideCache } from '~/lib/cached-json-fetch';
-
+const dev = process.env.NODE_ENV !== 'production'
+console.log(335, dev)
+const url_prefix = dev ? 'http://api.linxd.cc/' : 'http://api.linxiangdong.com/'
 
 
 class Detail extends React.Component {
   static async getInitialProps({ query, req }) {
     const data = { id: query.id }
-    console.log(35, data)
-    // const res = await cachedFetch('http://api.linxd.cc/article/detail', {
-    //   method: 'post',
-    //   data
-    // });
 
-
-
-    // if (res) {
-    //   console.log(7668, res)
-    //   const isServerRendered = !!req;
-    //   return { result: res.data.article_detail, isServerRendered };
-    // } else {
-    //   return { result: {}, isServerRendered }
-    // }
 
 
     const result = await axios({
-      url: 'http://api.linxd.cc/article/detail',
+      url: `${url_prefix}article/detail`,
       method: 'post',
       data
     })

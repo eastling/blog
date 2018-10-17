@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { message } from 'antd'
 import history from '~/history'
-
-axios.defaults.baseURL = '//api.linxd.cc'
+const dev = process.env.NODE_ENV !== 'production'
+console.log(444, dev)
+axios.defaults.baseURL = dev ? '//api.linxd.cc' : '//api.linxiangdong.com'
 axios.defaults.timeout = 5000
 localStorage.getItem('token')
 // http请求拦截器
