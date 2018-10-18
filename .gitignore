@@ -7,3 +7,5 @@
 front/.next/*
 
 */logs/
+
+admin/server/*
