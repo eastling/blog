@@ -10,10 +10,7 @@ const Entry = () => {
         <title>林向东网站</title>
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        {/* <link
-          rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css"
-        /> */}
+
       </Head>
       <div className="linxd-entry">
         <div className="linxd-entry-card">

@@ -1,13 +1,23 @@
 import React from 'react';
 import BlogLayout from '~/components/blog-layout'
-// import '~/_sass/minimal-mistakes.scss'
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
-import codeRenderer from './code-renderer';
 const dev = process.env.NODE_ENV !== 'production'
-console.log(335, dev)
 const url_prefix = dev ? 'http://api.linxd.cc/' : 'http://api.linxiangdong.com/'
+import Highlight from 'react-highlight'
 
+// const RHighlight = () => (
+//   <Highlight />
+// )
+
+const CodeBlock = ({ value }) => {
+  console.log(452, value)
+  return (
+    <Highlight innerHTML={true} language="javascript">
+      {`<pre><code class="javascript">${value}</code></pre>`}
+    </Highlight>
+  )
+}
 
 class Detail extends React.Component {
   static async getInitialProps({ query, req }) {
@@ -20,7 +30,6 @@ class Detail extends React.Component {
       method: 'post',
       data
     })
-    console.log(222, result)
     return { result: result.data.data.article_detail };
   }
 
@@ -35,6 +44,9 @@ class Detail extends React.Component {
   render() {
     const { result } = this.props
     if (!result) return null
+
+    const value = result.content
+
     return (
       <BlogLayout>
         <div className="linxd-blog">
@@ -44,15 +56,20 @@ class Detail extends React.Component {
 
             </div>
             <section className="page__content" itemProp="text">
-              {/* <ReactMarkdown source={result.content} /> */}
               <ReactMarkdown
-                source={result.content}
-                escapeHtml
+                source={value}
                 renderers={{
-                  CodeBlock: codeRenderer,
-                  Code: codeRenderer
+                  code: CodeBlock,
                 }}
               />
+
+              {/* <Highlight innerHTML={true}>
+                {'content'}
+              </Highlight> */}
+              {/* <ReactMarkdown
+                source={result.content}
+                escapeHtml
+              /> */}
             </section>
           </article>
         </div>
