@@ -1,9 +1,8 @@
 import React from 'react';
 import BlogLayout from '~/components/blog-layout'
-import axios from 'axios'
+import axios from '~/lib/axios'
 import Link from 'next/link'
-const dev = process.env.NODE_ENV !== 'production'
-const url_prefix = dev ? 'http://api.linxd.cc/' : 'http://api.linxiangdong.com/'
+
 
 
 const Tech = ({ result }) => {
@@ -36,9 +35,7 @@ const Tech = ({ result }) => {
 
 Tech.getInitialProps = async () => {
   const res = await axios({
-    method: 'get',
-    url: `${url_prefix}article/list`,
-    headers: { 'content-type': 'text/json' }
+    url: 'article/list',
   })
   return { result: res.data.data.article_list }
 

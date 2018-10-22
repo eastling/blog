@@ -9,8 +9,7 @@ const Entry = () => {
       <Head>
         <title>林向东网站</title>
         <meta charSet='utf-8' />
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' key="viewport" />
       </Head>
       <div className="linxd-entry">
         <div className="linxd-entry-card">

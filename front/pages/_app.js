@@ -1,19 +1,34 @@
-import App, { Container } from 'next/app'
 import React from 'react'
-import withMobxStore from '../lib/with-mobx-store'
-import { Provider } from 'mobx-react'
+import App, { Container } from 'next/app'
+import NProgress from 'nprogress'
+import Router from 'next/router'
+import '~/static/nprogress.scss'
 
-class MyApp extends App {
+
+Router.events.on('routeChangeStart', (url) => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
+
+export default class MyApp extends App {
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
+
   render() {
-    const { Component, pageProps, mobxStore } = this.props
+    const { Component, pageProps } = this.props
     return (
       <Container>
-        <Provider {...mobxStore}>
-          <Component {...pageProps} />
-        </Provider>
+        <Component {...pageProps} />
       </Container>
     )
   }
 }
-
-export default withMobxStore(MyApp)

@@ -25,7 +25,7 @@ const Nav = () => {
       <div className="masthead__inner-wrap">
         <div className="masthead__menu">
           <nav id="site-nav" className="greedy-nav">
-            <a className="site-title" href="/blog">林向东网站</a>
+            <a className="site-title" href="/blog">迷宫</a>
             <ul className="visible-links">
               {navData.map((n, i) => <li key={i} className="masthead__menu-item"><Link href={n.url}><a>{n.name}</a></Link></li>)}
             </ul>

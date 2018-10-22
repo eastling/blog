@@ -7,10 +7,9 @@ import Head from 'next/head'
 export default ({ children }) => (
   <Fragment>
     <Head>
-      <title>blog</title>
+      <title>xxx</title>
       <meta charSet='utf-8' />
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      {/* <link rel="stylesheet" href="/front/node_modules/highlight.js/styles/dark.css"></link> */}
+      <meta name='viewport' content='initial-scale=1.0, width=device-width' key="viewport" />
     </Head>
     <Nav />
     <div className='content-container'>

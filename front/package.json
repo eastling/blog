@@ -6,15 +6,12 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.18.0",
-    "isomorphic-fetch": "^2.2.1",
     "lscache": "^1.2.0",
-    "mobx": "^5.5.0",
-    "mobx-react": "^5.2.8",
     "next": "^7.0.1",
     "next-routes": "^1.4.2",
     "node-sass": "^4.9.3",
+    "nprogress": "^0.2.0",
     "react": "^16.5.2",
-    "react-addons-shallow-compare": "^15.6.2",
     "react-dom": "^16.5.2",
     "react-highlight": "^0.12.0",
     "react-markdown": "^4.0.2"
