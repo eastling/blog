@@ -45,6 +45,10 @@ class Detail extends React.Component {
               </section>
             </div>
           </article>
+          <div className="page-button">
+            <div className="prev-button"><a>ddd</a></div>
+            <div className="next-button"><a>ccc</a></div>
+          </div>
         </div>
       </BlogLayout>
     )

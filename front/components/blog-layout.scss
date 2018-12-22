@@ -1,0 +1,32 @@
+.content-container {
+  padding-top: 30px;
+  width: 60%;
+  margin: 0 auto;
+  min-width: 750px;
+  font-size: 20px;
+}
+
+
+.main {
+  padding: 30px;
+}
+
+.main-block {
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 20px;
+  h1 {
+
+  }
+  &__desc {
+    margin-bottom: 10px;
+  }
+  &__list {}
+  &__item {
+    font-size: 18px;
+  }
+  &:nth-last-of-type(1) {
+    border-bottom: none;
+  } 
+}

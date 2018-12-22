@@ -10,7 +10,6 @@ const Tech = ({ result }) => {
     <BlogLayout>
       <div id="main" role="main">
         <div className="archive">
-          <h1 id="page-title" className="page__title">技术笔记</h1>
           {result.map((r, i) => {
             return (
               <div className="list__item" key={i}>

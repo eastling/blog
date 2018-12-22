@@ -1,0 +1,36 @@
+.blog-header {
+  position: relative;
+  margin: 0 auto;
+  height: 70px;
+  line-height: 70px;
+  background-color: #ECB88A;
+  &__title {
+    display: inline-block;
+    padding: 0 20px;
+    height: 100%;
+    width: 280px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    a {
+      color: #FCFAF2;
+      :hover {
+        color:  #7dc2d6;
+      }
+    }
+  }
+  &__nav {
+    display: inline-block;
+  }
+  &__item {
+    display: inline-block;
+    padding: 0 32px;
+    a {
+      color: #FCFAF2;
+      font-size: 22px;
+      :hover {
+        color:  #7dc2d6;
+      }
+    }
+  }
+}

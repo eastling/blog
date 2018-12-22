@@ -15,8 +15,7 @@ const Entry = () => {
         <div className="linxd-entry-card">
           <Link href="/blog">
             <a>
-              <div className="entry-card__img">picture</div>
-              <div className="entry-card__info">blog</div>
+              <div className="entry-card__info">书房</div>
             </a>
           </Link>
         </div>

@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/mysql.conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: linxdroot
+
+  docker-server:
+    image: docker-server
+    restart: always
+    ports:
+      - 20160:20160

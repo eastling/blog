@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack');
+//  const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -54,11 +56,15 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.css', '.less']
   },
+  plugins: [
+     new webpack.HotModuleReplacementPlugin()
+    ],
   devServer: {
     port: 20161,
     publicPath: '/public/',
     historyApiFallback: {
       index: 'index.html',
-    }
+    },
+    hot: true
   },
 };

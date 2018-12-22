@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import AppRoute from './AppRoute'
 import { Router } from 'react-router-dom'
 import history from '~/history'
-
+if (module.hot) { console.log(4); module.hot.accept(); }
 ReactDOM.render(
   <Router history={history}>
     <AppRoute />

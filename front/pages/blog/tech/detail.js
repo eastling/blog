@@ -1,3 +1,3 @@
-import BlogDetail from '~/pages/blog/blog-detail'
+import BlogDetail from '~/components/blog-detail'
 
 export default BlogDetail
