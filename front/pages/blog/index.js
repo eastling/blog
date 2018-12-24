@@ -1,27 +1,41 @@
 import React from 'react';
-import BlogLayout from '~/components/blog-layout'
+import MenuIcon from '~/components/menu-icon'
+import axios from '~/lib/axios'
+import Link from 'next/link'
+import '~/static/dark.scss'
+import '~/static/scss/index.scss';
+import './blog.scss'
+import '~/static/index.scss'
+// import BlogLayout from '~/components/blog-layout'
 
-const Blog = () => {
+const Blog = ({ result }) => {
   return (
-    <BlogLayout>
-      <div className="main">
-        <div className="main-block">
-          <h1>技术</h1>
-          <div className="main-block__desc"><a href="/blog/tech">技术</a>记录我web开发的技术细节，主要在前端</div>
-          <ul className="main-block__list">
-            <li className="main-block__item"><a href="javascript:void(0)">从手工艺人到程序员</a></li>
-          </ul>
-        </div>
-        <div className="main-block">
-          <h1>随想</h1>
-          <div className="main-block__desc"><a href="/blog/essay">随想</a>记录我生活思考</div>
-          <ul className="main-block__list">
-            <li className="main-block__item"><a href="javascript:void(0)">从手工艺人到程序员</a></li>
+    <div className="blog-wrap">
+      <div className="blog-main">
+        <div className="blog-main__header">AMAZE</div>
+        <div className="blog-main__content">
+          <ul className="blog-main__list">
+            {result.map((item, key) => (
+              <li className="blog-main__item" key={key}>
+                <Link href={`/blog/tech/detail?id=${item.id}`}>
+                  <a>{item.title}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
-    </BlogLayout>
+      <MenuIcon />
+    </div>
   )
+}
+
+Blog.getInitialProps = async () => {
+  const res = await axios({
+    url: 'article/list',
+  })
+  return { result: res.data.data.article_list }
+
 }
 
 export default Blog

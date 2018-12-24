@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
 import BlogLayout from '~/components/blog-layout'
+import MenuIcon from '~/components/menu-icon'
 import axios from '~/lib/axios'
 
 
@@ -45,11 +46,12 @@ class Detail extends React.Component {
               </section>
             </div>
           </article>
-          <div className="page-button">
+          {/* <div className="page-button">
             <div className="prev-button"><a>ddd</a></div>
             <div className="next-button"><a>ccc</a></div>
-          </div>
+          </div> */}
         </div>
+        <MenuIcon />
       </BlogLayout>
     )
   }

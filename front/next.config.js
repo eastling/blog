@@ -1,4 +1,23 @@
-const withSass = require('@zeit/next-sass')
+const withPlugins = require('next-compose-plugins');
+const fonts = require('next-fonts');
+const sass = require('@zeit/next-sass');
+const css = require('@zeit/next-css')
+
+module.exports = withPlugins([
+  [css],
+  [sass],
+  [fonts, {
+    enableSvg: true,
+  }]
+]);
+
+
+
+// module.exports = withFonts({
+//   webpack(config, options) {
+//     return config;
+//   }
+// });
 // module.exports = withSass()
 
 // const withCss = require('@zeit/next-css')
@@ -10,9 +29,8 @@ const withSass = require('@zeit/next-sass')
 
 // module.exports = withCss()
 
-module.exports = withSass({
-    cssModules: false,
-    webpack: (config) => {
-        return config
-    }
-})
+
+
+
+
+

@@ -1,0 +1,34 @@
+.blog-wrap {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: linear-gradient(to right, #58B2DC 0%, #58B2DC 50%, #A8D8B9 50%, #A8D8B9 100%);
+}
+
+.blog-main {
+  margin: 0 auto;
+  width: 800px;
+  &__header {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 40px;
+  }
+  &__content {
+
+  }
+  &__list {}
+  &__item {
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    a {
+      color: #FCFAF2;
+      font-size: 24px;
+      &:hover {
+        color: #BDC0BA;
+      }
+    }
+  }
+}
+
