@@ -1,0 +1,22 @@
+.blog-header {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 60px;
+  &__list {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__item {
+    display: inline-block;
+    padding: 0 30px;
+    a {
+      color: #aaa;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

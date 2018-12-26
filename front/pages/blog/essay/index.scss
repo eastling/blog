@@ -1,0 +1,13 @@
+.archive__item {
+  margin-bottom: 24px;
+  &-title {
+    font-size: 24px;
+    font-weight: bold;
+    a {
+      color: #aaa;
+      &:hover {
+        color: #52adc8;
+      }
+    }
+  }
+}

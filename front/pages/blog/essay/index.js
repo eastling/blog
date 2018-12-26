@@ -17,7 +17,7 @@ const Tech = ({ result }) => {
                 <article className="archive__item">
                   <ul >
                     <li className="archive__item-title">
-                      <Link href={{ pathname: '/blog/tech/detail', query: { name: `${r.url_name}`, id: `${r.id}` } }}>
+                      <Link href={{ pathname: '/blog/essay/detail', query: { name: `${r.url_name}`, id: `${r.id}` } }}>
                         <a>{r.title}</a>
                       </Link>
                     </li>

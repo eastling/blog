@@ -2,9 +2,9 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
 import BlogLayout from '~/components/blog-layout'
-import MenuIcon from '~/components/menu-icon'
+import BlogHeader from '~/components/blog-header'
 import axios from '~/lib/axios'
-
+import './index.scss'
 
 const CodeBlock = ({ value, language }) => {
   return (
@@ -31,12 +31,13 @@ class Detail extends React.Component {
     return (
       <BlogLayout>
         <div className="linxd-blog">
-          <article className="page" itemScope="" itemType="http://schema.org/CreativeWork">
-            <div className="page__inner-wrap">
+          <BlogHeader />
+          <article className="page-article">
+            <div className="page-article__inner">
               <header>
-                <h1 className="page__title" itemProp="headline">{result.title}</h1>
+                <h1 className="page-article__title">{result.title}</h1>
               </header>
-              <section className="page__content" itemProp="text">
+              <section className="page-article__content">
                 <ReactMarkdown
                   source={result.content}
                   renderers={{
@@ -46,12 +47,7 @@ class Detail extends React.Component {
               </section>
             </div>
           </article>
-          {/* <div className="page-button">
-            <div className="prev-button"><a>ddd</a></div>
-            <div className="next-button"><a>ccc</a></div>
-          </div> */}
         </div>
-        <MenuIcon />
       </BlogLayout>
     )
   }
