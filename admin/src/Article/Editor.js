@@ -10,7 +10,7 @@ class Editor extends React.Component {
 
   render() {
     return (
-      <form className="editor pure-form" style={{ border: '1px solid red' }}>
+      <form className="editor pure-form">
         <CodeMirror 
           mode="markdown"
           theme="monokai"

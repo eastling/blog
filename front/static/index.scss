@@ -1,1 +1,23 @@
-@import './icon/iconfont.css'
+@import './scss/index.scss';
+@import './dark.scss';
+@import './nprogress.scss';
+@import './icon/iconfont.css';
+@import './left-menu.scss';
+@import './dashboard-item.scss';
+@import './card.scss';
+@import './book.scss';
+@import './blog-list.scss';
+@import './blog-layout.scss';
+@import './blog-detail.scss';
+@import './about.scss';
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#__next {
+  height: 100%;
+}
+.linxd-website {
+  height: 100%;
+}

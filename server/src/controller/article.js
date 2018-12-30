@@ -23,8 +23,20 @@ module.exports = class extends Base {
   }
 
   async listAction() {
+    let { category } = this.post();
+    try {
+      let article_list = await this.modelInstance.getList(category)
+      return this.success({ article_list })
+    } catch (e) {
+      return this.fail(e)
+    }
+  }
+
+  async countAction() {
     try {
       let article_list = await this.modelInstance.getList()
+      console.log(888, article_list)
+
       return this.success({ article_list })
     } catch (e) {
       return this.fail(e)

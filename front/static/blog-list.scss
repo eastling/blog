@@ -1,0 +1,21 @@
+.blog-list {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 80px;
+  &__inner {
+    padding-right: 40px;
+    border-right: 5px solid red;
+  }
+  &__item {
+    text-align: right;
+    margin-bottom: 32px;
+    font-weight: 600;
+    a {
+      color: #000;
+      font-size: 24px;
+      &:hover {
+        color: #268785;
+      }
+    }
+  }
+}

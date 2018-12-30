@@ -2,9 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown'
 import Highlight from 'react-highlight'
 import BlogLayout from '~/components/blog-layout'
-import BlogHeader from '~/components/blog-header'
 import axios from '~/lib/axios'
-import './index.scss'
+import LeftMenu from '~/components/left-menu'
 
 const CodeBlock = ({ value, language }) => {
   return (
@@ -31,7 +30,7 @@ class Detail extends React.Component {
     return (
       <BlogLayout>
         <div className="linxd-blog">
-          <BlogHeader />
+          <LeftMenu />
           <article className="page-article">
             <div className="page-article__inner">
               <header>

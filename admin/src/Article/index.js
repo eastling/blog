@@ -12,7 +12,6 @@ import { toJS } from 'mobx'
 import store from './store'
 
 
-
 @inject('articleStore')
 @observer class ArticleTable extends React.Component {
 
@@ -68,6 +67,7 @@ import store from './store'
           <Link to={`${match.path}/add`}>添加文章</Link>
         </Button>
         <Table columns={this.columns} dataSource={result} rowKey="id" />
+ 
       </div>
     )
   }

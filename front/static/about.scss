@@ -1,0 +1,14 @@
+.about-page {
+  margin: 80px 0;
+  .about-item {
+    margin-bottom: 40px;
+    &__title {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 15px;
+      color: #aaa;
+    }
+    &__content {
+      text-align: justify;
+    }
+  }
+}
