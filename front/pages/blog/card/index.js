@@ -40,7 +40,7 @@ class CardPage extends React.Component {
           <LeftMenu />
           <div className="card-page">
             <div className="card-page__tip">
-              <div>卡片说明：</div>
+              <div className="card-page__tip__label">卡片说明：</div>
               <div>1.这里是我技术卡片存放处</div>
               <div>2.每张卡片是一个知识点，值得记录却还不够形成文章</div>
               <div>3.卡片是未来文章的素材，要满足：内容要够小，只回答一个问题；要写明参考来源，便于回溯和扩展</div>

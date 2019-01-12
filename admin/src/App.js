@@ -99,7 +99,6 @@ const BreadBar = withRouter((props) => {
   );
 });
 
-// @inject('userStore')
 @observer class App extends React.Component {
   state = {
     collapsed: false,
@@ -127,7 +126,7 @@ const BreadBar = withRouter((props) => {
           <Header style={{ background: '#fff' }} >
             <BreadBar />
             <div className="person-info">
-              <div className="person-info-name">{userStore.user_info.name}</div>
+              <div className="person-info-name">{userStore.user_info ? userStore.user_info.name : 'xxx'}</div>
               <div className="person-info-logout" onClick={userStore.logout}>登出</div>
             </div>
           </Header>

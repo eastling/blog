@@ -1,9 +1,14 @@
 .content-container {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   font-size: 20px;
+  padding-left: 36px;
 }
 
+.blog-wrap {
+  padding-left: 36px;
+}
 
 .main {
   padding: 30px;

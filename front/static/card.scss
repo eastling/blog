@@ -1,6 +1,9 @@
 .card-page {
   margin: 80px auto;
   &__tip {
+    &__label {
+      font-weight: 600;
+    }
     margin-bottom: 30px;
     font-size: 14px;
     color: #666;
@@ -12,10 +15,9 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
   .card-item {
-    padding: 10px;
     position: relative;
-    width: 190px;
-    height: 220px;
+    width: 19%;
+    padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -27,12 +29,13 @@
       color: #2191d5;
     }
     &__title {
-      position: absolute;
+      position: relative;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
       width: 94%;
+      text-align: justify;
+      word-break: break-all;
     }
   }
 }
@@ -76,5 +79,36 @@
       span {}
     }
     &__content {}
+  }
+}
+
+@media (max-width: 800px) {
+  .card-page {
+    margin: 30px 10px;
+  }
+  .card-list {
+    .card-item {
+      position: relative;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 48%;
+      font-size: 12px;
+    }
+  }
+  .card-overlay {
+    .card-model {
+      width: 90%;
+      &__header {
+        font-size: 20px;
+      }
+      &__content {
+        font-size: 14px;
+        h1 {
+          font-size: 20px;
+        }
+      }
+    }
   }
 }

@@ -1,7 +1,9 @@
 .blog-list {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
+  // padding-left: 36px;
   padding-top: 80px;
+  padding-right: 20px;
   &__inner {
     padding-right: 40px;
     border-right: 5px solid red;
@@ -11,10 +13,30 @@
     margin-bottom: 32px;
     font-weight: 600;
     a {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       color: #000;
       font-size: 24px;
       &:hover {
         color: #268785;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .blog-list {
+    &__inner {
+      padding-right: 15px;
+    }
+    &__item {
+      a {
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
       }
     }
   }

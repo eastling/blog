@@ -1,0 +1,73 @@
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx:1.14.1-alpine
+    container_name: blog-nginx-container
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./volume/server-logs:/var/log/server-logs
+      - ./volume/front-logs:/var/log/front-logs
+      - ./volume/_next:/blog.front/_next
+    networks:
+      - blognet
+
+  mysql:
+    image: mysql:latest
+    container_name: blog-mysql-container
+    restart: always
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf
+      - ./volume/mysql:/var/lib/mysql
+      - ./server/blog.sql:/docker-entrypoint-initdb.d/blog.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: linxdroot
+    networks:
+      - blognet
+
+  blog-server:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    container_name: blog-server-container
+    restart: always
+    volumes:
+      - ./volume/server-logs:/blog.server/logs
+    ports:
+      - 20160:20160
+    networks:
+      - blognet
+
+  blog-admin:
+    build:
+      context: ./admin
+      dockerfile: dockerfile
+    container_name: blog-admin-container
+    restart: always
+    ports:
+      - 20161:20161
+    networks:
+      - blognet
+  
+  blog-front:
+    build:
+      context: ./front
+      dockerfile: dockerfile
+    container_name: blog-front-container
+    restart: always
+    volumes:
+      - ./volume/front-logs:/blog.front/logs
+      - ./volume/_next:/blog.front/www
+    ports:
+      - 20162:20162
+    networks:
+      - blognet
+
+networks:
+  blognet:
+    external:
+      name: blognet

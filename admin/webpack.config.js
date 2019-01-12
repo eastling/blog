@@ -57,7 +57,7 @@ module.exports = {
     extensions: ['.js', '.css', '.less']
   },
   plugins: [
-     new webpack.HotModuleReplacementPlugin()
+     new webpack.HotModuleReplacementPlugin(),
     ],
   devServer: {
     port: 20161,
@@ -65,6 +65,7 @@ module.exports = {
     historyApiFallback: {
       index: 'index.html',
     },
-    hot: true
+    hot: true,
+    disableHostCheck: true
   },
 };

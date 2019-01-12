@@ -1,0 +1,9 @@
+node_modules/**
+runtime/**
+logs/**
+
+.next/*
+
+.vscode/**
+
+package-lock.json

@@ -15,7 +15,7 @@ exports.model = {
     database: 'blog',
     prefix: '',
     encoding: 'utf8',
-    host: '127.0.0.1',
+    host: 'blog-mysql-container',
     port: '3306',
     user: 'root',
     password: 'linxdroot',

@@ -21,7 +21,7 @@ const dashboardData = [{
   imgUrl: '/static/img/nbkf_card.jpg',
   imgTitle: '纳博科夫的卡片',
   name: '卡片',
-  content: '「卡片」是我记录信息的第一步，这些信息值得记录，却还不够形成文章。以技术细节为主。共有xx张卡片。'
+  content: '「卡片」信息值得记录，却还不够形成文章。以技术细节为主。共有xx张卡片。'
 }]
 
 const DashboardItem = ({ result }) => {
@@ -53,6 +53,7 @@ DashboardItem.getInitialProps = async () => {
   const res = await axios({
     url: 'article/count',
   })
+  console.log(244, res)
   return { result: res.data.data.article_list }
 }
 

@@ -8,6 +8,8 @@ RUN npm config set registry http://registry.npm.taobao.org && \
 
 COPY . /blog.server
 
+RUN npm run compile
+
 ENV DOCKER=true
 EXPOSE 20160
 

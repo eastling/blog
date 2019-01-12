@@ -4,6 +4,7 @@ module.exports = class extends Base {
   constructor(...arg) {
     super(...arg);
     this.modelInstance = this.model('article');
+    this.categoryModel = this.model('category')
   }
 
   async indexAction() {
@@ -16,6 +17,8 @@ module.exports = class extends Base {
     const data = { title, content, user_id: user_info.id, category_id, url_name, is_open, is_comment }
     try {
       const insertId = await this.modelInstance.addArticle(data)
+      const addArticleNumberInCategory = await this.categoryModel.addNumber({ category_id })
+
       return this.success(insertId);
     } catch (e) {
       return this.fail(e)
@@ -32,16 +35,16 @@ module.exports = class extends Base {
     }
   }
 
-  async countAction() {
-    try {
-      let article_list = await this.modelInstance.getList()
-      console.log(888, article_list)
+  // async countAction() {
+  //   try {
+  //     let article_list = await this.modelInstance.getList()
+  //     console.log(888, article_list)
 
-      return this.success({ article_list })
-    } catch (e) {
-      return this.fail(e)
-    }
-  }
+  //     return this.success({ article_list })
+  //   } catch (e) {
+  //     return this.fail(e)
+  //   }
+  // }
 
   async detailAction() {
     const { id } = this.post()

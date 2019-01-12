@@ -41,13 +41,15 @@ module.exports = class extends Base {
   async countAction() {
     try {
       let category_list = await this.modelInstance.getList()
-      console.log(567, category_list)
-      return this.success({ category_list })
+      const count = {}
+      category_list.forEach(cate => {
+        count[cate.name] = cate.artilce_number
+      })
+      return this.success(count)
     } catch (e) {
       return this.fail(e)
     }
   }
-
 
   async deleteAction() {
     const id = this.get('id')

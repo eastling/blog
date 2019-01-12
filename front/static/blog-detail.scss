@@ -9,3 +9,17 @@
 
   }
 }
+
+@media (max-width: 800px) {
+  .page-article {
+    margin: 30px 10px;
+    &__title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    &__content {
+      font-size: 16px;
+    }
+  }
+}

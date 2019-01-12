@@ -6,6 +6,8 @@
 
 front/.next/*
 
-*/logs/
+mysql-volume/*
+
+# */logs/
 
 admin/server/*

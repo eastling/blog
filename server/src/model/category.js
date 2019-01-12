@@ -7,6 +7,14 @@ module.exports = class extends think.Model {
     return { category }
   }
 
+  async addNumber({ category_id }) {
+    const category = await this.where({ id: category_id }).find();
+    const number = category.artilce_number
+    const result = await this.where({ id: category_id }).update({ artilce_number: number + 1 })
+    return result
+  }
+
+
   async getCategory(data) {
     const category = await this.where(data).find();
     if (think.isEmpty(category)) {
