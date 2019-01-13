@@ -21,7 +21,6 @@ class LoginRoute extends Component {
   }
 
   render() {
-    console.log(678, items)
     return (
       <div className="login-route-main">
         <ul className="tab-list">

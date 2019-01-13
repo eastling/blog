@@ -28,8 +28,6 @@ class NormalLoginForm extends React.Component {
       if (!err) {
         console.log('Received values of form: ', values);
       }
-      // console.log(11, values)
-      // console.log(22, this.state)
     });
   }
 

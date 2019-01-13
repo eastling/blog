@@ -12,7 +12,6 @@ class Login {
   @action
   async login(data) {
     const result = await axios.post('/user/login', data)
-    console.log(789, result)
     if (result) {
       localStorage.setItem('token', result.data.token)
       message.success('登录成功！')
@@ -23,7 +22,6 @@ class Login {
   @action
   async signup(data) {
     const result = await axios.post('/user/signup', data)
-    console.log(456, result)
     if (result) {
       localStorage.setItem('token', result.data.token)
       history.push('/app/dashboard')

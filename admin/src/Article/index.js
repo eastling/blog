@@ -45,7 +45,6 @@ import store from './store'
     render: (text, record) => (
       <div><Button text="删除" onClick={() => {
         const { articleStore } = this.props
-        console.log(335, record.id)
         articleStore.deleteArticle(record.id)
 
       }} >删除</Button></div>
