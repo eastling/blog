@@ -53,8 +53,12 @@ module.exports = class extends Base {
   async deleteAction() {
     const id = this.get('id')
     try {
+      let article_detail = await this.modelInstance.getDetail({ id })
       let article = await this.modelInstance.deleteArticle({ id })
-      const deleteArticleNumberInCategory = await this.categoryModel.deleteNumber({ category_id: id })
+      console.log(345, article_detail)
+      const { category_id } = article_detail
+      console.log(4532, category_id)
+      const deleteArticleNumberInCategory = await this.categoryModel.deleteNumber({ category_id })
       return this.success({ article })
     } catch (e) {
       return this.fail(e)
