@@ -23,13 +23,13 @@ class CardPage extends React.Component {
 
   static async getInitialProps() {
 
-    const result = await axios({
+    const res = await axios({
       url: 'article/list',
       method: 'post',
       data: { category: 'card' }
     })
-    
-    return { result: result.data.data.article_list };
+    const result = res.data.data ? res.data.data.article_list : []
+    return { result };
   }
 
   render() {

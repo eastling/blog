@@ -19,6 +19,7 @@ services:
   mysql:
     image: mysql:latest
     container_name: blog-mysql-container
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
       - ./my.cnf:/etc/mysql/my.cnf

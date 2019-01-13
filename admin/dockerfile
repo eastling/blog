@@ -16,4 +16,4 @@ RUN npm run build
 ENV DOCKER=true
 EXPOSE 20161
 
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]

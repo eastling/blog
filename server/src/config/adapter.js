@@ -43,7 +43,8 @@ exports.model = {
     port: '3306',
     user: 'root',
     password: 'linxdroot',
-    dateStrings: true
+    dateStrings: true,
+    insecureAuth : true
   }
 };
 

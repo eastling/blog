@@ -6,7 +6,7 @@
 
 front/.next/*
 
-mysql-volume/*
+volume/*
 
 # */logs/
 

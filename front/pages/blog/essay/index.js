@@ -33,7 +33,8 @@ Essay.getInitialProps = async () => {
     method: 'post',
     data: { category: 'essay' }
   })
-  return { result: res.data.data.article_list }
+  const result = res.data.data ? res.data.data.article_list : []
+  return { result }
 
 }
 

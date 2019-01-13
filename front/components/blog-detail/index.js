@@ -17,12 +17,16 @@ class Detail extends React.Component {
   static async getInitialProps({ query, req }) {
     const data = { id: query.id }
 
-    const result = await axios({
+    const res = await axios({
       url: 'article/detail',
       method: 'post',
       data
     })
-    return { result: result.data.data.article_detail };
+    const result = res.data.data ? res.data.data.article_detail : {
+      title: '',
+      content: ''
+    }
+    return { result };
   }
 
   render() {
