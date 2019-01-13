@@ -35,15 +35,6 @@ module.exports = class extends Base {
     }
   }
 
-  // async countAction() {
-  //   try {
-  //     let article_list = await this.modelInstance.getList()
-
-  //     return this.success({ article_list })
-  //   } catch (e) {
-  //     return this.fail(e)
-  //   }
-  // }
 
   async detailAction() {
     const { id } = this.post()
@@ -63,6 +54,7 @@ module.exports = class extends Base {
     const id = this.get('id')
     try {
       let article = await this.modelInstance.deleteArticle({ id })
+      const deleteArticleNumberInCategory = await this.categoryModel.deleteNumber({ category_id: id })
       return this.success({ article })
     } catch (e) {
       return this.fail(e)
