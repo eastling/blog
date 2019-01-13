@@ -25,7 +25,6 @@ const dashboardData = [{
 }]
 
 const DashboardItem = ({ result }) => {
-  console.log(111, result)
   return (
     <React.Fragment>
       {dashboardData.map((d, i) => {
@@ -53,7 +52,6 @@ DashboardItem.getInitialProps = async () => {
   const res = await axios({
     url: 'article/count',
   })
-  console.log(244, res)
   return { result: res.data.data.article_list }
 }
 

@@ -38,7 +38,6 @@ module.exports = class extends Base {
   // async countAction() {
   //   try {
   //     let article_list = await this.modelInstance.getList()
-  //     console.log(888, article_list)
 
   //     return this.success({ article_list })
   //   } catch (e) {

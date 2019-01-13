@@ -65,7 +65,6 @@ module.exports = class extends Base {
       });
     }
     delete user_info.password
-    console.log(1133, user_info)
     this.success(user_info);
 
   }

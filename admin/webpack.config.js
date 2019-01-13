@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 //  const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -58,7 +61,19 @@ module.exports = {
   },
   plugins: [
      new webpack.HotModuleReplacementPlugin(),
-    ],
+    //  new BundleAnalyzerPlugin(),
+    //  new webpack.DllReferencePlugin({
+    //    manifest: require('./public/admin.manifest.json')
+    // })
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJSPlugin({}),
+      // Compress extracted CSS. We are using this plugin so that possible
+      // duplicated CSS from different components can be deduped.
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   devServer: {
     port: 20161,
     publicPath: '/public/',

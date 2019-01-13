@@ -5,7 +5,6 @@ import LeftMenu from '~/components/left-menu'
 import Link from 'next/link'
 
 const Tech = ({ result }) => {
-  console.log(86, result)
   return (
     <BlogLayout>
       <div>

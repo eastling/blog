@@ -55,7 +55,6 @@ const SideMenu = withRouter((props) => {
       index = i
     }
   })
-  console.log('menu_data', menu_data)
   return (
     <Menu defaultSelectedKeys={[String(index)]} mode="inline">
       {menu_data.map((m, i) => (

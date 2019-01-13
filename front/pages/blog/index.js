@@ -5,9 +5,9 @@ import Link from 'next/link'
 import BlogHead from '~/components/blog-head'
 
 const Blog = ({ result }) => {
-  const tech = (result && result.tech) ? reuslt.tech : 0
-  const essay = (result && result.essay) ? reuslt.essay : 0
-  const card = (result && result.card) ? reuslt.card : 0
+  const tech = (result && result.tech) ? result.tech : 0
+  const essay = (result && result.essay) ? result.essay : 0
+  const card = (result && result.card) ? result.card : 0
 
   const dashboardData = [{
     url: '/blog/tech',
