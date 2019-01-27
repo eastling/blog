@@ -35,7 +35,7 @@ class Detail extends React.Component {
       <BlogLayout>
         <div className="linxd-blog">
           <LeftMenu />
-          <article className="page-article">
+          <div className="page-article">
             <div className="page-article__inner">
               <header>
                 <h1 className="page-article__title">{result.title}</h1>
@@ -49,7 +49,7 @@ class Detail extends React.Component {
                 />
               </section>
             </div>
-          </article>
+          </div>
         </div>
       </BlogLayout>
     )

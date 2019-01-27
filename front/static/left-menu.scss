@@ -41,12 +41,21 @@
       text-align: center;
       padding: 0 5px;
     }
-    &:hover {
-      color: #268785;
-      .icon-text {
-        display: inline-block;
+    
+  }
+}
+
+@media (min-width: 800px) {
+  .left-menu {
+    &__icon-box {
+      &:hover {
+        color: #268785;
+        .icon-text {
+          display: inline-block;
+        }
       }
     }
   }
+  
 }
 
