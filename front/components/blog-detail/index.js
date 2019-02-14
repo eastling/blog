@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
+// import Highlight from 'react-highlight'
 import BlogLayout from '~/components/blog-layout'
 import axios from '~/lib/axios'
 import LeftMenu from '~/components/left-menu'
 
-const CodeBlock = ({ value, language }) => {
-  return (
-    <Highlight innerHTML={true}>
-      {`<pre><code class=${language}>${value}</code></pre>`}
-    </Highlight>
-  )
-}
+// const CodeBlock = ({ value, language }) => {
+//   return (
+//     <Highlight innerHTML={true}>
+//       {`<pre><code class=${language}>${value}</code></pre>`}
+//     </Highlight>
+//   )
+// }
 
 class Detail extends React.Component {
   static async getInitialProps({ query, req }) {
@@ -43,9 +43,9 @@ class Detail extends React.Component {
               <section className="page-article__content">
                 <ReactMarkdown
                   source={result.content}
-                  renderers={{
-                    code: CodeBlock,
-                  }}
+                  // renderers={{
+                  //   code: CodeBlock,
+                  // }}
                 />
               </section>
             </div>

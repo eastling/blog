@@ -14,7 +14,7 @@ const Essay = ({ result }) => {
             {result.map((r, i) => {
               return (
                 <div className="blog-list__item" key={i}>
-                  <Link href={{ pathname: '/blog/essay/detail', query: { name: `${r.url_name}`, id: `${r.id}` } }}>
+                  <Link prefetch href={{ pathname: '/blog/essay/detail', query: { name: `${r.url_name}`, id: `${r.id}` } }}>
                     <a>{r.title}</a>
                   </Link>
                 </div>

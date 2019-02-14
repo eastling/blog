@@ -1,18 +1,17 @@
 import React from 'react';
 import BlogLayout from '~/components/blog-layout'
 import LeftMenu from '~/components/left-menu'
-import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
-import Highlight from 'react-highlight'
+// import Highlight from 'react-highlight'
 import axios from '~/lib/axios'
 
-const CodeBlock = ({ value, language }) => {
-  return (
-    <Highlight innerHTML={true}>
-      {`<pre><code class=${language}>${value}</code></pre>`}
-    </Highlight>
-  )
-}
+// const CodeBlock = ({ value, language }) => {
+//   return (
+//     <Highlight innerHTML={true}>
+//       {`<pre><code class=${language}>${value}</code></pre>`}
+//     </Highlight>
+//   )
+// }
 
 class CardPage extends React.Component {
 
@@ -67,9 +66,9 @@ class CardPage extends React.Component {
                 <div className="card-model__content">
                   <ReactMarkdown
                     source={this.state.model.content}
-                    renderers={{
-                      code: CodeBlock,
-                    }}
+                    // renderers={{
+                    //   code: CodeBlock,
+                    // }}
                   />
                 </div>
               </div>

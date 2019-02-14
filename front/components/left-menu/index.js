@@ -37,7 +37,7 @@ const LeftMenu = () => {
       <div className="left-menu__top">
         {leftTopData.map((d, i) => {
           return (
-            <Link key={i} href={d.url}>
+            <Link prefetch key={i} href={d.url}>
               <div className="left-menu__icon-box">
                 <span className="icon-pic"><i className={`icon iconfont ${d.icon}`} /></span>
                 <span className="icon-text">{d.name}</span>
@@ -49,7 +49,7 @@ const LeftMenu = () => {
       <div className="left-menu__bottom">
         {leftBottomData.map((d, i) => {
           return (
-            <Link key={i} href={d.url}>
+            <Link prefetch key={i} href={d.url}>
               <div className="left-menu__icon-box">
                 <span className="icon-pic"><i className={`icon iconfont ${d.icon}`} /></span>
                 <span className="icon-text">{d.name}</span>

@@ -37,7 +37,7 @@ const Blog = ({ result }) => {
       <div className="blog-main">
         {dashboardData.map((d, i) => {
           return (
-            <Link key={i} href={d.url}>
+            <Link key={i} prefetch href={d.url}>
               <div className="blog-main__item">
                 <div className="left-pic">
                   <img title={d.imgTitle} src={d.imgUrl} />

@@ -29,7 +29,7 @@ const DashboardItem = ({ result }) => {
     <React.Fragment>
       {dashboardData.map((d, i) => {
         return (
-          <Link key={i} href={d.url}>
+          <Link prefetch key={i} href={d.url}>
             <div className="blog-main__item">
               <div className="left-pic">
                 <img title={d.imgTitle} src={d.imgUrl} />
