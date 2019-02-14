@@ -1,10 +1,16 @@
-- my.cnf
+### 个人博客
+
+地址：[www.linxiangdong.com](www.linxiangdong.com)
+
+分为三个服务：
+
+- service：服务端，提供api，使用技术thinkjs
+- admin：后台管理端，增删改查文章，使用技术react+ant-design
+- front 前端博客页面，展示文章，使用技术nextjs服务端渲染
 
 
-进入docker中mysql，查找到default配置是在：/etc/mysql/my.cnf
-将my.cnf的内容复制出来，并添加语句user=mysql。最后在启动时将其复制过去
+使用docker方式部署项目：[地址](http://www.linxiangdong.com/blog/tech/detail?name=docker_compose&id=17)
 
-解决登录mysql，使用mysql -u root -p命令： Access denied for user 'root'@'localhost' 
-
-
-
+待完成任务：
+1. 增加https
+2. 优化访问速度
