@@ -1,6 +1,6 @@
 ### 个人博客
 
-地址：[www.linxiangdong.com](www.linxiangdong.com)
+地址：[www.linxiangdong.com](http://www.linxiangdong.com)
 
 分为三个服务：
 
