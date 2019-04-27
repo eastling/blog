@@ -95,6 +95,7 @@ class NormalLoginForm extends React.Component {
                     <Option value="touch">触碰</Option>
                     <Option value="taste">味道</Option>
                     <Option value="move">移动</Option>
+                    <Option value="others">其他</Option>
                   </Select>
                 )}
               </Form.Item>
