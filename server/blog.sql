@@ -5,7 +5,7 @@ create database `blog` default character set utf8 collate utf8_general_ci;
 -- 切换到blog数据库
 use blog; 
 
-CREATE TABLE `article` (
+CREATE TABLE IF NOT EXISTS `article` (
   `id` int (10) NOT NULL AUTO_INCREMENT,
   `title` varchar (200) NOT NULL,
   `user_id` int (10) DEFAULT NULL,
@@ -22,20 +22,20 @@ CREATE TABLE `article` (
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE `tag` (
+CREATE TABLE IF NOT EXISTS `tag` (
   `id` int (10) NOT NULL AUTO_INCREMENT,
   `name` varchar (200) NOT NULL,
   `article_number` int (10) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE `article_tag` (
+CREATE TABLE IF NOT EXISTS `article_tag` (
   `article_id` int (10) NOT NULL,
   `tag_name` VARCHAR (20) NOT NULL,
   PRIMARY KEY (`article_id`, `tag_name`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int (10) NOT NULL AUTO_INCREMENT,
   `name` varchar (100) NOT NULL,
   `email` varchar (100) DEFAULT NULL,
@@ -46,11 +46,28 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE `category` (
+CREATE TABLE IF NOT EXISTS `category` (
   `id` int (10) NOT NULL AUTO_INCREMENT,
   `user_id` int (10) NOT NULL,
   `name` varchar (50) NOT NULL,
   `artilce_number` int (10) DEFAULT 0,
   `article_id` int (10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `metaphor` (
+  `id` int (10) NOT NULL AUTO_INCREMENT,
+  `content` text,
+  `title` varchar (200) DEFAULT NULL,
+  `author` varchar (200) DEFAULT NULL,
+  `position` int (1) NOT NULL DEFAULT '0',
+  `scope` int (1) NOT NULL DEFAULT '0',
+  `type` varchar (200) DEFAULT 'construct',
+  `properties` varchar (200) DEFAULT NULL,
+  `subject` varchar (200) DEFAULT NULL,
+  `metaphor` varchar (200) DEFAULT NULL,
+  `character` varchar (200) DEFAULT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
