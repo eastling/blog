@@ -21,7 +21,7 @@ const nextConfig = {
 };
 
 module.exports = withPlugins([
-  // [css],
+  [css],
   [sass],
   [fonts, {
     enableSvg: true,

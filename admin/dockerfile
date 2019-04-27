@@ -11,8 +11,6 @@ COPY . /blog.admin
 
 RUN npm run build
 
-# RUN chmod 777 -R /blog.admin/public
-
 ENV DOCKER=true
 EXPOSE 20161
 

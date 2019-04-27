@@ -1,0 +1,65 @@
+.zal-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.zal-box {
+  position: relative;
+  margin: 30px;
+  .form-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .content-list {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-left: 420px;
+    text-align: justify;
+    border-radius: 5px;
+    list-style: none;
+  }
+
+  .ant-row.ant-form-item {
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+
+  .login-form-button {
+    text-align: center !important;
+  }
+
+  .content-list li {
+    line-height: 1.8;
+    margin-bottom: 5px;
+    cursor: pointer;
+    .content-list__content {
+      &:hover {
+        color: orange
+      }
+    }
+    .btn-flat {
+      color: #1890ff;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .zal-box {
+    .form-wrap {
+      position: inherit;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .content-list {
+      margin-left: 0;
+    }
+  }
+}
+
+
+

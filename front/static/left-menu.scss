@@ -45,7 +45,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
   .left-menu {
     &__icon-box {
       &:hover {

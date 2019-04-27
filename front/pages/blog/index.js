@@ -21,13 +21,22 @@ const Blog = ({ result }) => {
     imgTitle: 'E·B 怀特在写作',
     name: '随笔',
     content: `「随笔」是我记录除「技术」之外其他文章，主要是生活经历和思考，共有${essay}篇文章。`
-  }, {
-    url: '/blog/card',
-    imgUrl: '/static/img/nbkf_card.jpg',
-    imgTitle: '纳博科夫的卡片',
-    name: '卡片',
-    content: `「卡片」信息值得记录，却还不够形成文章。以技术细节为主。共有${card}张卡片。`
-  }]
+  },
+  // {
+  //   url: '/blog/card',
+  //   imgUrl: '/static/img/nbkf_card.jpg',
+  //   imgTitle: '纳博科夫的卡片',
+  //   name: '卡片',
+  //   content: `「卡片」信息值得记录，却还不够形成文章。以技术细节为主。共有${card}张卡片。`
+  // },
+  {
+    url: '/blog/metaphor',
+    imgUrl: '/static/img/zal.png',
+    imgTitle: '张爱玲隐喻',
+    name: '隐喻',
+    content: `「隐喻」收录张爱玲的隐喻。`
+  }
+  ]
 
 
   return (

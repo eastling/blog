@@ -9,5 +9,5 @@ front/.next/*
 volume/*
 
 # */logs/
-
+server/src/model/data.js
 admin/server/*
