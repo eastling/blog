@@ -139,15 +139,18 @@ class NormalLoginForm extends React.Component {
             </Form>
           </div>
           <ul className="content-list">
-            {this.state.list.map((item, index) =>
-              <li
-                key={index}
-              >
-                <span className="content-list__content" onClick={() => this.setState({ model: item, visible: true })}>{item.content}--《{item.title}》</span>
-                <CopyToClipboard text={item.content}>
-                  <span className="btn-flat">[复制]</span>
-                </CopyToClipboard>
-              </li>)}
+            {
+              this.state.list.length ? this.state.list.map((item, index) =>
+                <li
+                  key={index}
+                >
+                  <span className="content-list__content" onClick={() => this.setState({ model: item, visible: true })}>{item.content}--《{item.title}》</span>
+                  <CopyToClipboard text={item.content}>
+                    <span className="btn-flat">[复制]</span>
+                  </CopyToClipboard>
+                </li>) :
+                <div className="nodata-tip">这里是知识的荒漠~</div>
+            }
           </ul>
         </div>
         <Modal

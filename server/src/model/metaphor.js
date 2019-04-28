@@ -11,7 +11,6 @@ module.exports = class extends think.Model {
     for (let item of data) {
       let { content, title, author, position, scope, type, properties, subject, metaphor, character } = item;
 
-      properties = JSON.stringify(properties)
       try {
         const id = await this.add({ content, title, author, position, scope, type, properties, subject, metaphor, character });
         console.log('add data success' + `${id}`)
@@ -35,8 +34,11 @@ module.exports = class extends think.Model {
         const temp = query['content']
         query['content'] = ['like', `%${temp}%`]
       }
+      if (item === 'properties') {
+        const temp = query['properties']
+        query['properties'] = ['like', `%${temp}%`]
+      }
     }
-
     const list = await this.where(query).select();
     return list
   }
