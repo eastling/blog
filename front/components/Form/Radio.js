@@ -4,6 +4,7 @@ import Icon from '../Icon'
 
 export const RadioButton = ({ id, text, name, value, checked, disabled, extraInfo, ...props }) => (
   <label className={classNames('radio-btn', { selected: checked }, { disabled: disabled })} htmlFor={id}>
+    <span className={`shadow-radio ${checked ? 'checked' : ''}`}></span>
     <input type="radio" id={id} name={name} value={value} checked={checked} {...props} />
     {text}
     <Icon type="selected" />

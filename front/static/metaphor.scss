@@ -69,6 +69,7 @@
       }
       .properties-wrap {
         position: relative;
+        
         .properties-value {
           position: relative;
           border: 1px solid #ddd;
@@ -131,47 +132,36 @@
       .radio-group {
         margin-left: 1px;
         .radio-btn {
-          margin-right: 12px;
-          input[type="radio"] {
+          margin-right: 15px;
+          .shadow-radio  {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
             position: relative;
-            margin-right: 4px;
+            top: 2px;
+            &.checked {
+              border-color: #1890ff;
+              &::before {
+                content: '';
+                position: absolute;
+                left: 3px;
+                top: 3px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: #1890ff;
+                z-index: 3;
+              }
+            }
+          }
+          input[type="radio"] {
             border: 1px solid #ddd;
             outline: none;
             background-color: #fff;
             -webkit-appearance: none;
-            margin-left: 16px;
-            &::after {
-              content: '';
-              position: absolute;
-              left: -14px;
-              top: -9px;
-              width: 14px;
-              height: 14px;
-              border-radius: 50%;
-              border: 1px solid #ddd;
-              background-color: #fff;
-            }
-            &::before {
-              content: '';
-              position: absolute;
-              left: -9px;
-              top: -4px;
-              width: 6px;
-              height: 6px;
-              border-radius: 50%;
-              background-color: #ddd;
-              z-index: 3;
-              display: none;
-            }
-            &:checked {
-              &::after {
-                border-color: #1890ff;
-              }
-              &::before {
-                display: block;
-                background-color: #1890ff;
-              }
-            }
+            opacity: 0;
           }
         }
       }

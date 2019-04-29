@@ -2,7 +2,7 @@ import React from 'react';
 import MetaphorLayout from '~/components/metaphor-layout'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Form, FormItem } from '~/components/Form/Form'
-import { Input, Select } from '~/components/Form/Input'
+import { Input } from '~/components/Form/Input'
 import { RadioGroup, RadioButton } from '~/components/Form/Radio'
 import { SubmitButton } from '~/components/Form/Button'
 import axios from '~/lib/axios'
@@ -116,10 +116,10 @@ class NormalLoginForm extends React.Component {
                 <textarea name="content" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })} />
               </FormItem>
               <FormItem label="所属作品名" cols={[2, 5]}>
-                <Input name="title" value={this.state.title} onChange={(e) => this.setState({ title: e.target.value })} />
+                <input type="text" name="title" value={this.state.title} onChange={(e) => this.setState({ title: e.target.value })} />
               </FormItem>
               <FormItem label="作者" cols={[2, 5]}>
-                <Input name="author" value={this.state.author} onChange={(e) => this.setState({ author: e.target.value })} />
+                <input type="text" name="author" value={this.state.author} onChange={(e) => this.setState({ author: e.target.value })} />
               </FormItem>
               <FormItem label="性状" cols={[2, 1]}>
                 <div className="properties-wrap">
@@ -144,8 +144,10 @@ class NormalLoginForm extends React.Component {
                 </div>
               </FormItem>
               <FormItem label="范畴" cols={[0, 5]} >
-                <RadioGroup name="scope" value={this.state.scope} onChange={(e) => this.setState({ scope: e.target.value })}>
-                {scopeList.map((item, index) => <RadioButton key={index} checked={this.state.scope === item.value} text={item.label} value={item.value} onChange={(e) => this.setState({ scope: e.target.value })} />)}
+                <RadioGroup name="scope" value={this.state.scope}>
+                {scopeList.map((item, index) =>
+                  <RadioButton key={index} checked={this.state.scope === item.value} text={item.label} value={item.value} onChange={(e) => this.setState({ scope: e.target.value })} />
+                )}
                 </RadioGroup>
               </FormItem>
               <FormItem label="隐喻类型" cols={[0, 5]} >
@@ -201,10 +203,5 @@ class NormalLoginForm extends React.Component {
     );
   }
 }
-
-// const App = Form.create({ name: 'normal_login' })(NormalLoginForm);
-
-
-// export default App;
 
 export default NormalLoginForm
