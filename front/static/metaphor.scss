@@ -133,6 +133,7 @@
         margin-left: 1px;
         .radio-btn {
           margin-right: 15px;
+          position: relative;
           .shadow-radio  {
             display: inline-block;
             width: 14px;
@@ -162,6 +163,9 @@
             background-color: #fff;
             -webkit-appearance: none;
             opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
           }
         }
       }
@@ -302,10 +306,10 @@
       margin-bottom: 20px !important;
       .control-label {
         font-size: 12px !important;
-        width: 85px !important;
+        width: 90px !important;
       }
       .form-control-wrap {
-        margin-left: 90px !important;
+        margin-left: 95px !important;
         font-size: 12px !important;
         width: inherit !important;
       }
