@@ -22,7 +22,7 @@
 2. 没有选择的选项不会成为限定条件
 3. 隐喻关键词句：例句中包含此关键词的例句都会被选中。例如输入月亮。
 
-![-w1241](http://static.linxiangdong.com/mweb/15564685380678.jpg)
+![-w1240](http://static.linxiangdong.com/mweb/15564966243740.jpg)
 
 ### 概念
 
