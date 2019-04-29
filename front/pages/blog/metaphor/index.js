@@ -1,7 +1,6 @@
 import React from 'react';
 import MetaphorLayout from '~/components/metaphor-layout'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Modal from '~/components/Modal'
 import { Form, FormItem } from '~/components/Form/Form'
 import { Input, Select } from '~/components/Form/Input'
 import { RadioGroup, RadioButton } from '~/components/Form/Radio'
