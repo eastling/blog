@@ -38,7 +38,6 @@
       }
       .form-control-wrap {
         margin-left: 120px;
-        overflow: hidden;
         width: 250px;
         font-size: 14px;
       }
@@ -47,8 +46,12 @@
         outline: none;
         border: 1px solid #ddd;
         border-radius: 3px;
-        height: 32px;
+        height: 36px;
         padding: 0 6px;
+        -webkit-appearance: none;
+        &:focus {
+          border: 1px solid #1890ff;
+        }
       }
       textarea {
         overflow: auto;
@@ -59,20 +62,58 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         padding: 6px;
+        -webkit-appearance: none;
+        &:focus {
+          border: 1px solid #1890ff;
+        }
       }
-      select {
-        width: 100%;
-        height: 32px;
-        outline: none;
-        border: 1px solid #ddd;
-        background-color: #fff;
+      .properties-wrap {
+        position: relative;
+        .properties-value {
+          border: 1px solid #ddd;
+          height: 36px;
+          line-height: 36px;
+          padding: 0 6px;
+          border-radius: 4px;
+          cursor: pointer;
+          &.focused {
+            border-color: #1890ff;;
+          }
+        }
+        .properties-list {
+          position: absolute;
+          left: 0;
+          top: 36px;
+          width: 100%;
+          z-index: 2;
+          background-color: #fff;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          border: 1px solid #ddd;
+          border-top: none;
+          border-radius: 0 0 4px 4px;
+          .properties-item {
+            border-bottom: 1px solid #ddd;
+            height: 36px;
+            line-height: 36px;
+            padding-left: 6px;
+            margin: 0;
+            font-size: 14px;
+            cursor: pointer;
+            &:nth-last-child(1) {
+              border-bottom: none;
+            }
+            &:hover {
+              color: orange;
+            }
+          }
+        }
       }
       .radio-group {
-        margin-top: -2px;
         margin-left: 1px;
         .radio-btn {
           margin-right: 12px;
-          vertical-align: middle;
           input {
             margin-right: 4px;
             margin-top: -3px;
@@ -89,6 +130,7 @@
         margin: 0;
         border-radius: 3px;
         border: none;
+        -webkit-appearance: none;
       }
       .clear-btn {
         position: absolute;

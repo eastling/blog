@@ -7,6 +7,31 @@ import { RadioGroup, RadioButton } from '~/components/Form/Radio'
 import { SubmitButton } from '~/components/Form/Button'
 import axios from '~/lib/axios'
 
+const propertiesList = [{
+  label: '无',
+  value: ''
+}, {
+  label: '形状',
+  value: 'shape'
+}, {
+  label: '颜色',
+  value: 'color'
+}, {
+  label: '声音',
+  value: 'sound'
+}, {
+  label: '触觉',
+  value: 'touch'
+}, {
+  label: '味觉',
+  value: 'taste'
+}, {
+  label: '移动',
+  value: 'move'
+}, {
+  label: '其他',
+  value: 'others'
+},]
 
 class NormalLoginForm extends React.Component {
 
@@ -60,7 +85,6 @@ class NormalLoginForm extends React.Component {
       <MetaphorLayout>
         <div className="zal-header">
           <h1>隐喻黑客</h1>
-          {/* <p><a target="__blank" href="https://github.com/eastling/blog">github地址</a></p> */}
           <p>隐喻黑客收录张爱玲作品中隐喻365例，提供<a className="github-link" target="__blank" href="https://github.com/eastling/blog">知觉和语言</a>两个角度进行搜索。<span onClick={() => this.setState({ showSearchTipModal: true })} className="search-tip">搜索说明</span></p>
         </div>
         <div className="zal-box">
@@ -75,8 +99,26 @@ class NormalLoginForm extends React.Component {
               <FormItem label="作者" cols={[2, 5]}>
                 <Input name="author" value={this.state.author} onChange={(e) => this.setState({ author: e.target.value })} />
               </FormItem>
-              <FormItem label="性状" cols={[2, 1]} mustfill="1">
-                <Select className="loan-type-select" name="properties" value={this.state.properties} onChange={(e) => this.setState({ properties: e.target.value })}>
+              <FormItem label="性状" cols={[2, 1]}>
+                <div className="properties-wrap">
+                  <div className={`properties-value ${this.state.showPropertiesList ? 'focused' : ''}`} onClick={() => {
+                    this.setState({
+                      showPropertiesList: !this.state.showPropertiesList
+                    })
+                  }}>{propertiesList.find(item => item.value === this.state.properties)['label']}</div>
+                  {this.state.showPropertiesList &&
+                    <ul className="properties-list">
+                      {propertiesList.map((item, index) =>
+                        <li className="properties-item" key={index}
+                          onClick={() => {
+                            this.setState({ properties: item.value, showPropertiesList: false })
+                          }}
+                        >
+                          {item.label}
+                        </li>)}
+                    </ul>}
+                </div>
+                {/* <Select name="properties" value={this.state.properties} onChange={(e) => this.setState({ properties: e.target.value })}>
                   <option value="">无</option>
                   <option value="shape">形状</option>
                   <option value="color">颜色</option>
@@ -85,7 +127,7 @@ class NormalLoginForm extends React.Component {
                   <option value="taste">味道</option>
                   <option value="move">移动</option>
                   <option value="others">其他</option>
-                </Select>
+                </Select> */}
               </FormItem>
               <FormItem label="范畴" cols={[0, 5]} >
                 <RadioGroup name="scope" value={this.state.scope} onChange={(e) => this.setState({ scope: e.target.value })}>
