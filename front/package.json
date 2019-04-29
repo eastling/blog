@@ -7,6 +7,7 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "express": "^4.16.4",
     "lscache": "^1.2.0",
     "next": "^7.0.1",
