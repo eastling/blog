@@ -1,7 +1,7 @@
 import React from 'react';
 import MetaphorLayout from '~/components/metaphor-layout'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import {
   Form,
   Input, Button, Radio, Select, Modal
