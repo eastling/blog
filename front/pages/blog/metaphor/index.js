@@ -51,19 +51,19 @@ class NormalLoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
+      wrapperCol: { span: 18 },
     };
     return (
       <BlogLayout>
         <div className="zal-header">
-          <h1>张爱玲隐喻</h1>
-          <p>收录张爱玲作品中隐喻356例，提供知觉和语言两个角度进行搜索。</p>
+          <h1>隐喻黑客</h1>
+          <p>隐喻黑客收录张爱玲作品中隐喻365例，提供知觉和语言两个角度进行搜索。<span onClick={() => this.setState({ showSearchTipModal: true })} className="search-tip">搜索说明</span></p>
         </div>
         <div className="zal-box">
           <div className="form-wrap">
             <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
               <Form.Item
-                label="隐喻"
+                label="隐喻关键词句"
               >
                 {getFieldDecorator('content')(
                   <TextArea rows={4} autoComplete="off" />
@@ -88,7 +88,7 @@ class NormalLoginForm extends React.Component {
                 hasFeedback
               >
                 {getFieldDecorator('properties')(
-                  <Select>
+                  <Select dropdownStyle={{ fontSize: '12px' }}>
                     <Option value="shape">形状</Option>
                     <Option value="color">颜色</Option>
                     <Option value="sound">声音</Option>
@@ -164,6 +164,20 @@ class NormalLoginForm extends React.Component {
           <p>喻体：{this.state.model.metaphor}</p>
           <p>新范畴特征：{this.state.model.character}</p>
         </Modal>
+        <Modal
+          title="搜索指南"
+          visible={this.state.showSearchTipModal}
+          footer={null}
+          onCancel={() => this.setState({ showSearchTipModal: false })}
+        >
+          <p>1.限定性搜索，即输入的搜索条件越多，范围越小；直接点击「搜索按钮」获得全部例句，无关条件不填即可。</p>
+          <p>2.「隐喻关键词句」指句子内容的包含匹配。比如填入“太阳”，将匹配出所有含有“太阳”两字的句子。</p>
+          <p>3.点击句子本身可获得“本体”、“喻体”、“新范畴”三个特性。</p>
+          <p>4.点击「复制」即复制该例句，可ctrl+v使用。</p>
+        </Modal>
+
+
+
       </BlogLayout>
     );
   }

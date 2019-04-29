@@ -1,6 +1,18 @@
 .zal-header {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  .search-tip {
+    color: #1890ff;
+    cursor: pointer;
+    font-size: 12px;
+  }
 }
 
 .zal-box {
@@ -11,7 +23,7 @@
     left: 0;
     top: 0;
     width: 400px;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
   }
@@ -51,6 +63,10 @@
     text-align: center;
     color: #ccc;
   }
+  .ant-form label {
+    font-size: 12px;
+  }
+  
 }
 
 @media (max-width: 800px) {
