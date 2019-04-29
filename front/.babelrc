@@ -21,6 +21,13 @@
     ],
     [
       "babel-plugin-root-import"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": false
+      }
     ]
   ]
 }

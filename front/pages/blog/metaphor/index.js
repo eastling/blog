@@ -1,9 +1,10 @@
 import React from 'react';
-import BlogLayout from '~/components/metaphor-layout'
+import MetaphorLayout from '~/components/metaphor-layout'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-// import 'antd/dist/antd.css'
+import 'antd/dist/antd.css'
 import {
-  Form, Input, Button, Radio, Select, Modal
+  Form,
+  Input, Button, Radio, Select, Modal
 } from 'antd';
 import axios from '~/lib/axios'
 const { TextArea } = Input;
@@ -54,7 +55,7 @@ class NormalLoginForm extends React.Component {
       wrapperCol: { span: 18 },
     };
     return (
-      <BlogLayout>
+      <MetaphorLayout>
         <div className="zal-header">
           <h1>隐喻黑客</h1>
           <p><a target="__blank" href="https://github.com/eastling/blog">github地址</a></p>
@@ -100,16 +101,6 @@ class NormalLoginForm extends React.Component {
                   </Select>
                 )}
               </Form.Item>
-              {/* <Form.Item
-                label="位置"
-              >
-                {getFieldDecorator('position')(
-                  <Radio.Group>
-                    <Radio value="0">本体</Radio>
-                    <Radio value="1">喻体</Radio>
-                  </Radio.Group>
-                )}
-              </Form.Item> */}
               <Form.Item
                 label="范畴"
               >
@@ -158,7 +149,6 @@ class NormalLoginForm extends React.Component {
           title="隐喻详情"
           visible={this.state.visible}
           footer={null}
-          // onOk={() => this.setState({ visible: false })}
           onCancel={() => this.setState({ visible: false })}
         >
           <p>本体：{this.state.model.subject}</p>
@@ -176,10 +166,7 @@ class NormalLoginForm extends React.Component {
           <p>3.点击句子本身可获得“本体”、“喻体”、“新范畴”三个特性。</p>
           <p>4.点击「复制」即复制该例句，可ctrl+v使用。</p>
         </Modal>
-
-
-
-      </BlogLayout>
+      </MetaphorLayout>
     );
   }
 }
@@ -188,3 +175,5 @@ const App = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
 
 export default App;
+
+// export default NormalLoginForm
