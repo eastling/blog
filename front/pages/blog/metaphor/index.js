@@ -31,7 +31,29 @@ const propertiesList = [{
 }, {
   label: '其他',
   value: 'others'
-},]
+}]
+
+const typeList = [{
+  label: '结构',
+  value: 'construct'
+}, {
+  label: '方位',
+  value: 'position'
+}, {
+  label: '实体',
+  value: 'object'
+}, {
+  label: '容器',
+  value: 'docker'
+}]
+
+const scopeList = [{
+  label: '范畴间',
+  value: '0'
+}, {
+  label: '范畴内',
+  value: '1'
+}]
 
 class NormalLoginForm extends React.Component {
 
@@ -105,7 +127,9 @@ class NormalLoginForm extends React.Component {
                     this.setState({
                       showPropertiesList: !this.state.showPropertiesList
                     })
-                  }}>{propertiesList.find(item => item.value === this.state.properties)['label']}</div>
+                  }}>
+                  {propertiesList.find(item => item.value === this.state.properties)['label']}
+                  </div>
                   {this.state.showPropertiesList &&
                     <ul className="properties-list">
                       {propertiesList.map((item, index) =>
@@ -118,29 +142,15 @@ class NormalLoginForm extends React.Component {
                         </li>)}
                     </ul>}
                 </div>
-                {/* <Select name="properties" value={this.state.properties} onChange={(e) => this.setState({ properties: e.target.value })}>
-                  <option value="">无</option>
-                  <option value="shape">形状</option>
-                  <option value="color">颜色</option>
-                  <option value="sound">声音</option>
-                  <option value="touch">触碰</option>
-                  <option value="taste">味道</option>
-                  <option value="move">移动</option>
-                  <option value="others">其他</option>
-                </Select> */}
               </FormItem>
               <FormItem label="范畴" cols={[0, 5]} >
                 <RadioGroup name="scope" value={this.state.scope} onChange={(e) => this.setState({ scope: e.target.value })}>
-                  <RadioButton value="0" checked={this.state.scope === '0'} text="范畴间" />
-                  <RadioButton value="1" checked={this.state.scope === '1'} text="范畴内" />
+                {scopeList.map((item, index) => <RadioButton key={index} checked={this.state.scope === item.value} text={item.label} value={item.value} onChange={(e) => this.setState({ scope: e.target.value })} />)}
                 </RadioGroup>
               </FormItem>
               <FormItem label="隐喻类型" cols={[0, 5]} >
-                <RadioGroup name="type" value={this.state.type} onChange={(e) => this.setState({ type: e.target.value })}>
-                  <RadioButton checked={this.state.type === 'construct'} text="结构" value="construct" />
-                  <RadioButton checked={this.state.type === 'position'} text="方位" value="position" />
-                  <RadioButton checked={this.state.type === 'object'} text="实体" value="object" />
-                  <RadioButton checked={this.state.type === 'docker'} text="容器" value="docker" />
+                <RadioGroup name="type" value={this.state.type} >
+                  {typeList.map((item, index) => <RadioButton key={index} checked={this.state.type === item.value} text={item.label} value={item.value} onChange={(e) => this.setState({ type: e.target.value })} />)}
                 </RadioGroup>
               </FormItem>
               <FormItem cols={[2, 9]}>

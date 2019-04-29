@@ -70,14 +70,32 @@
       .properties-wrap {
         position: relative;
         .properties-value {
+          position: relative;
           border: 1px solid #ddd;
           height: 36px;
           line-height: 36px;
           padding: 0 6px;
           border-radius: 4px;
           cursor: pointer;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-width: 8px 4px;
+            border-style: solid;
+            border-color: #aaa #ffffff #ffffff #ffffff;
+            margin-top: -4px;
+          }
           &.focused {
-            border-color: #1890ff;;
+            border-color: #1890ff;
+            &::after {
+              transform: rotate(180deg);
+              transform-origin: 4px 4px;
+            }
           }
         }
         .properties-list {
@@ -85,7 +103,7 @@
           left: 0;
           top: 36px;
           width: 100%;
-          z-index: 2;
+          z-index: 9;
           background-color: #fff;
           list-style: none;
           margin: 0;
@@ -114,9 +132,46 @@
         margin-left: 1px;
         .radio-btn {
           margin-right: 12px;
-          input {
+          input[type="radio"] {
+            position: relative;
             margin-right: 4px;
-            margin-top: -3px;
+            border: 1px solid #ddd;
+            outline: none;
+            background-color: #fff;
+            -webkit-appearance: none;
+            margin-left: 16px;
+            &::after {
+              content: '';
+              position: absolute;
+              left: -14px;
+              top: -9px;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              border: 1px solid #ddd;
+              background-color: #fff;
+            }
+            &::before {
+              content: '';
+              position: absolute;
+              left: -9px;
+              top: -4px;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background-color: #ddd;
+              z-index: 3;
+              display: none;
+            }
+            &:checked {
+              &::after {
+                border-color: #1890ff;
+              }
+              &::before {
+                display: block;
+                background-color: #1890ff;
+              }
+            }
           }
         }
       }
