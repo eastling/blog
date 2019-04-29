@@ -57,6 +57,7 @@ class NormalLoginForm extends React.Component {
       <BlogLayout>
         <div className="zal-header">
           <h1>隐喻黑客</h1>
+          <p><a target="__blank" href="https://github.com/eastling/blog">github地址</a></p>
           <p>隐喻黑客收录张爱玲作品中隐喻365例，提供知觉和语言两个角度进行搜索。<span onClick={() => this.setState({ showSearchTipModal: true })} className="search-tip">搜索说明</span></p>
         </div>
         <div className="zal-box">
