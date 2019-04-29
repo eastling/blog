@@ -1,0 +1,107 @@
+//
+// List groups
+// --------------------------------------------------
+
+
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  // No need to set list-style: none; since .list-group-item is block level
+  padding-left: 0; // reset padding because ul and ol
+  background-color: $list-group-bg;
+  margin-bottom: 0;
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid $list-group-border;
+  
+  //listicons
+  .licon {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    min-height: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+    color: $brand-base;
+    text-align: center;
+  }
+  a {
+    cursor:pointer;
+    box-sizing: border-box;
+    font-size: $font-size-large;
+    display: block;
+    height: $list-group-height;
+    line-height: $list-group-line-height;
+    text-decoration: none;
+    padding: $list-group-padding;
+    color: $list-group-anchor-color;
+  }
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: #fff;
+    background-color: $list-group-active-bg;
+    border-color: $list-group-active-border;
+    .licon {
+      color: #fff;
+      vertical-align: middle;
+    }
+  }
+  &.active a{
+    color: #fff;
+  }
+}
+
+
+.with-second-list {
+  > a + .list-group {
+    background-color: #fdfdfd;
+    font-size: $font-size-base;
+    border-top: 1px solid $list-group-border;
+    display: none; 
+    &.open {
+      display: block !important;
+    }
+    .list-group-item {
+      border-bottom: 0;
+      padding-left: 0;
+      > a {
+        font-size: $font-size-base;
+        color: $second-list-anchor-color;
+        padding-left: 53px;
+        background-color: $second-list-bg;
+      }
+      &:hover a {
+        color: $brand-base;
+      }
+      &.active a {
+        color: #fff;
+        background-color: $brand-base;
+      }
+    }
+  }
+  &.active:hover,
+  &:hover {
+    color: $brand-base;
+  }
+  &.active,
+  &.active:focus {
+    border-bottom: 0;
+    .licon {
+      color: #fff;
+    }
+  }
+}
+
+

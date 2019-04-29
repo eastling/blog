@@ -1,0 +1,16 @@
+// Panels
+
+@mixin panel-variant($heading-bg-color, $heading-font-size, $heading-text-color, $heading-line-height) {
+
+  & > .panel-heading {
+    font-size: $heading-font-size;
+    line-height: $heading-line-height;
+    color: $heading-text-color;
+    background-color: $heading-bg-color;
+
+    .badge {
+      color: $heading-bg-color;
+      background-color: $heading-text-color;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+  > .btn {
+    position: relative;
+    float: left;
+    height: 28px;
+    line-height: 26px;
+    background-color: #fff;
+    text-align: center;
+    padding: 0 12px;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      outline: 0;
+      z-index: 2;
+      color: #fff;
+    }
+    &.disabled {
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        background-color: #fff;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.btn-group-primary {
+  > .btn {
+    color: $brand-base;
+    border: 1px solid $brand-base;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $brand-base;
+      background-color: $brand-base;
+    }
+    &.disabled {
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: $brand-base;
+        border-color: $brand-base;
+      }
+    }
+  }
+}
+.btn-group-highlight {
+  > .btn {
+    color: $brand-orange;
+    border: 1px solid $brand-orange;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      border-color: $brand-orange;
+      background-color: $brand-orange;
+    }
+    &.disabled {
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: $brand-orange;
+        border-color: $brand-orange;
+      }
+    }
+  }
+}
+
+// Prevent double borders when buttons are next to each other
+.btn-group {
+  .btn + .btn,
+  .btn + .btn-group,
+  .btn-group + .btn,
+  .btn-group + .btn-group {
+    margin-left: -1px;
+  }
+}
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btn-group > .first-btn {
+  margin-left: 0;
+  @include border-left-radius(20px);
+  padding-left: 16px;
+}
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.btn-group > .last-btn {
+  @include border-right-radius(20px);
+  padding-right: 16px;
+}
+
+
+// Reposition the caret
+.btn .caret {
+  margin-left: 0;
+}
+
+
+// Checkbox and radio options
+//
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .btn,
+  > .btn-group > .btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,383 @@
+//
+// Navs
+// --------------------------------------------------
+
+
+// Base class
+// --------------------------------------------------
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  @include clearfix;
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: $cursor-disabled;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+
+  // Nav dividers (deprecated with v3.0.1)
+  //
+  // This should have been removed in v3 with the dropping of `.nav-list`, but
+  // we missed it. We don't currently support this anywhere, but in the interest
+  // of maintaining backward compatibility in case you use it, it's deprecated.
+  .nav-divider {
+    @include nav-divider;
+  }
+
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
+
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  background-color: $nav-tabs-bg;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+
+    // Actual tabs (as links)
+    > a {
+      height: $nav-tabs-height;
+      line-height: $nav-tabs-line-height;
+      font-size: $nav-tabs-link-font-size;
+      color: $nav-tabs-color;
+      padding: 0 $nav-tabs-padding;
+      border-top: 4px solid $nav-tabs-border-color;
+      text-align: center;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        border-top: 4px solid $nav-tabs-active-link-hover-border-color;
+        cursor: default;
+      }
+    }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    @extend .nav-justified;
+  }
+}
+.nav-tabs-nub {
+  border-bottom: 1px solid $nav-tabs-nub-color;
+  > li {
+    float: left;
+    > a {
+      height: $nav-tabs-nub-height;
+      line-height: $nav-tabs-nub-line-height;
+      font-size: $nav-tabs-nub-font-size;
+      color: $nav-tabs-nub-font-color;
+      border-width: 1px 0 0 1px;
+      border-style: solid;
+      border-color: $nav-tabs-nub-border;
+      padding: 0 $nav-tabs-nub-padding;
+    }
+    &:last-child {
+      a {
+        border-right-width: 1px;
+      }
+    }
+    
+    &.active > a{
+      color: #fff;
+      background-color: $nav-tabs-nub-active-bg;
+      border-color: $nav-tabs-nub-color;
+    }
+  }
+  &.nav-justified {
+    @extend .nav-justified;
+  }
+}
+.nav-tabs-link {
+  background-color: #fff;
+  border-bottom: 1px solid $border-color;
+
+  > li {
+    float: left;
+  }
+  > li > a {
+    // Override margin from .nav-tabs
+    margin-right: 0;
+    height: $nav-tabs-link-height;
+    padding: 0 $nav-tabs-link-padding;
+    font-size: $nav-tabs-link-link-font-size;
+    color: $gray-dark;
+    background-color: $nav-tabs-link-bg;
+    border-bottom: 2px solid transparent;
+    &:hover{
+      color: $nav-tabs-link-hover-color;
+      background-color: $nav-tabs-link-bg;
+    }
+  }
+
+  > .active > a,
+  > .active > a:hover,
+  > .active > a:focus {
+    color: $nav-tabs-link-active-link-hover-color;
+    background-color: #fff;
+    border-bottom: 2px solid $nav-tabs-link-active-link-hover-border-color;
+    cursor: default;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    > li > a {
+      border-bottom: 2px solid transparent;
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      border-bottom-color: $nav-tabs-link-active-link-hover-border-color;
+    }
+  }
+}
+
+// Pills
+// -------------------------
+.nav-pills {
+  > li {
+    float: left;
+    padding-right: $nav-pills-padding;
+    // Links rendered as pills
+    > a {
+      font-size: $nav-pills-font-size;
+      height: $nav-pills-height;
+      line-height: $nav-pills-height;
+      border-radius: $nav-pills-border-radius;
+      padding: $nav-pills-link-padding;
+      background-color: $nav-pills-bg;
+      &:hover{
+        color: $nav-pills-link-hover-color;
+        background-color: $nav-pills-link-hover-bg; 
+      }
+    }
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-pills-active-link-hover-color;
+        background-color: $nav-pills-active-link-hover-bg;
+        cursor: default;
+      }
+    }
+  }
+}
+
+
+// Pills rank
+.nav-pills-rank {
+  padding: 15px 0;
+  > li {
+    > a {
+      width: $nav-pills-rank-width;
+      height: $nav-pills-rank-height;
+      line-height: 30px;
+      font-size: $font-size-base;
+      color: $nav-pills-rank-color;
+      border: 1px solid $border-color;
+      padding: $nav-pills-rank-padding;
+      text-align: center;
+      text-indent: 3px;
+      &:hover {
+        color: $nav-pills-rank-color;
+      }
+    }
+    &.active > a {
+      border: 1px solid $brand-base;
+      &:after {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Pills filter
+.nav-pills-filter {
+  overflow: hidden;
+  > li {
+    overflow: hidden;
+    border-top: $nav-pills-filter-list-border;
+    padding: $nav-pills-filter-list-padding;
+    margin-top: -1px;
+  }
+  dl > * {
+    line-height: 1;
+    overflow: hidden;
+  }
+  dt {
+    float: left;
+    height: $nav-pills-filter-item-height;
+    line-height: $nav-pills-filter-item-line-height;
+    margin-right: 3px;
+  }
+  dd {
+    overflow: hidden; 
+    .filter-btn {
+      margin-right: 20px;
+      margin-bottom: 10px;
+      &:hover {
+        color: $nav-pills-filter-item-hover-color;
+        background-color: $nav-pills-filter-item-hover-bg;
+      }
+      &.active {
+        color: $nav-pills-filter-item-active-color;
+        background-color: $nav-pills-filter-item-active-bg;
+        cursor: default;
+      }
+    }
+  }
+  .filter-title {
+    font-weight: normal;
+    color: $nav-pills-filter-title-color;
+  }
+  .filter-btn {
+    display: inline-block;
+    height: $nav-pills-filter-item-height;
+    line-height: $nav-pills-filter-item-line-height;
+    color: $nav-pills-filter-item-color;
+    border-radius: $nav-pills-filter-item-border-radius;
+    text-decoration: none;
+    padding: $nav-pills-filter-item-padding;
+  }
+}
+
+
+// Pills arrow [selecable]
+.nav-pills-arrow {
+  > li {
+    &.active > a {
+      &:before {
+        position: absolute;
+        top: 28px;
+        left: 50%;
+        display: block;
+        margin-left: -6px;
+        width: 0;
+        height: 0;
+        border: 6px solid #5074C5;
+        border-color: #5074C5 transparent transparent;
+        content: ' ';
+      }
+    }
+  }
+}
+// Stacked pills
+.nav-stacked {
+  > li {
+    float: none;
+    + li {
+      margin-top: 2px;
+      margin-left: 0; // no need for this gap between nav items
+    }
+  }
+}
+
+
+// Nav variations
+// --------------------------------------------------
+
+// Justified nav links
+// -------------------------
+
+.nav-justified {
+  width: 100%;
+
+  > li {
+    width: 50%;
+    > a {
+      text-align: center;
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+}
+
+// Tabbable tabs
+// -------------------------
+
+// Hide tabbable panes to start, show them when `.active`
+.tab-content {
+  
+  > .tab-pane {
+    display: none;
+    background-color: #fff;
+    padding: $tab-content-padding-top $tab-content-padding-left;
+  }
+  > .active {
+    display: block;
+  }
+
+  &.tab-content-nub, &.tab-content-arrow, &.tab-content-link {
+    > .tab-pane {
+      padding: 0;
+    }
+  }
+}
+
+
+// Dropdowns
+// -------------------------
+
+// Specific dropdowns
+.nav-tabs .dropdown-menu {
+  // make dropdown border overlap tab border
+  margin-top: -1px;
+  // Remove the top rounded corners here since there is a hard edge above the menu
+  @include border-top-radius(0);
+}

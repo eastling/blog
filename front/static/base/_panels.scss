@@ -1,0 +1,249 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  background-color: $panel-bg;
+  margin-bottom: 10px;
+}
+
+// Panel contents
+.panel-body {
+  color: $panel-body-color;
+  padding: $panel-body-padding;
+  @include clearfix;
+}
+
+// Optional heading
+.panel-heading {
+  position: relative;
+  background-color: $panel-heading-bg;
+  font-size: $panel-heading-font-size;
+  line-height: $panel-heading-line-height;
+  color: $panel-heading-color;
+  border-bottom: 1px solid $panel-inner-border;
+  padding: $panel-heading-padding;
+  > .nav {
+    padding: floor(($panel-heading-line-height - $nav-pills-rank-height)/2) 0 ceil(($panel-heading-line-height - $nav-pills-rank-height)/2);
+  }
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $font-size-larger;
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.panel {
+  > .list-group,
+  > .panel-collapse > .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .list-group-item:first-child {
+        border-top: 0;
+      }
+    }
+
+    // Add border bottom radius for last one
+    &:last-child {
+      .list-group-item:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+.list-group + .panel-footer {
+  border-top-width: 0;
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table,
+  > .table-responsive > .table,
+  > .panel-collapse > .table {
+    margin-bottom: 0;
+
+    caption {
+      padding-left: $panel-body-padding;
+      padding-right: $panel-body-padding;
+    }
+  }
+  > .table > tbody:first-child > tr:first-child th,
+  > .table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+  > .table-bordered,
+  > .table-responsive > .table-bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  > .table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  margin-bottom: $line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+
+    + .panel {
+      margin-top: 5px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
+      border-top: 1px solid $panel-inner-border;
+    }
+  }
+
+  .panel-footer {
+    border-top: 0;
+    + .panel-collapse .panel-body {
+      border-bottom: 1px solid $panel-inner-border;
+    }
+  }
+}
+
+.panel-tip {
+  > .panel-body > ol {
+    padding: 10px 0 10px 20px;
+    margin: 0;
+    > li {
+      list-style-type: decimal;
+      line-height: 2;
+    }
+  }
+}
+
+
+// Contextual variations
+.panel-default {
+  @include panel-variant($panel-default-heading-bg, $panel-default-heading-font-size, $panel-default-heading-color, $panel-default-heading-line-height);
+}
+.panel-primary {
+  @include panel-variant($panel-primary-heading-bg, $panel-primary-heading-font-size, $panel-primary-heading-color, $panel-primary-heading-line-height);
+}
+.panel-default,
+.panel-primary {
+  > .panel-heading {
+    padding: $panel-default-heading-padding;
+  }
+  > .panel-heading > .nav{
+    padding: floor(($panel-primary-heading-line-height - $nav-pills-rank-height)/2) 0 ceil(($panel-primary-heading-line-height - $nav-pills-rank-height)/2);
+  }
+  > .panel-body {
+    padding: $panel-default-body-padding;
+  }
+}
+
+.panel-md {
+  > .panel-heading {
+    height: $panel-md-heading-line-height;
+    line-height: $panel-md-heading-line-height;
+    padding: $panel-md-heading-padding;
+  }
+  > .panel-body {
+    padding: $panel-md-body-padding;
+  }
+}
+.panel-tip {
+  border: 1px solid $panel-sm-border;
+  margin-top: 60px;
+  > .panel-heading {
+    font-weight: bold;
+    font-size: $font-size-base;
+    color: $text-color;
+    line-height: $panel-sm-heading-line-height;
+    padding: $panel-sm-heading-padding;
+    border-bottom: 1px solid $panel-sm-border;
+    background-color: $panel-sm-heading-bg;
+  }
+  > .panel-body {
+    padding: $panel-sm-body-padding;
+    background-color: $panel-sm-body-bg;
+    color: $gray-dark;
+  }
+}
